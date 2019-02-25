@@ -1,3 +1,0 @@
-parameters:
-    excludes_analyse:
-            - %rootDir%/../../../vendor/spryker/spryker/Bundles/Event/src/Spryker/Zed/Event/Business/Dispatcher/*

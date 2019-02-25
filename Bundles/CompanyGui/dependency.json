@@ -1,5 +1,0 @@
-{
-  "include": {
-    "CompanyGuiExtension": "Interfaces it depends on"
-  }
-}

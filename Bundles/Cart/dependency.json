@@ -1,5 +1,0 @@
-{
-  "include": {
-    "CartExtension": "Interfaces it depends on"
-  }
-}
