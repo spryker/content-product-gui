@@ -1,5 +1,0 @@
-architecture-sniffer:
-    wrong-param: 5
-    ignoreErrors:
-        - '#.#'
-        - '#^DependencyProvider#'

@@ -1,3 +1,0 @@
-{% for giftCard in mail.giftCards %}
-    {{ giftCard.code }} ({{ giftCard.actualValue / 100 | number_format(2) }} {{ giftCard.currencyIsoCode }})
-{% endfor %}

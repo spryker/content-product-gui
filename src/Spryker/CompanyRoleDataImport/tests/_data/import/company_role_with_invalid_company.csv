@@ -1,3 +1,0 @@
-company_role_key,company_role_name,company_key,is_default
-Role_Admin,Admin,Test_ltd,
-Role_Buyer,Admin,TestInvalidCompany_ltd,false

@@ -1,7 +1,0 @@
-{
-  "include": {
-  },
-  "exclude": {
-    "Messenger": "Required by tests"
-  }
-}

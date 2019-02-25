@@ -1,6 +1,0 @@
-{
-  "include": {
-    "CompanyBusinessUnit": "CompanyBusinessUnit provides base functionality.",
-    "UuidBehavior": "Used to generate UUIDs for entities."
-  }
-}

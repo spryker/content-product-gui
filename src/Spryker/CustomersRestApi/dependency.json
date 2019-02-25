@@ -1,5 +1,0 @@
-{
-  "include": {
-    "Session": "Session provides backwards compatibility."
-  }
-}

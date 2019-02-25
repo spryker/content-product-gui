@@ -1,5 +1,0 @@
-{% if orderItem.quantitySalesUnit.productMeasurementUnit.name is defined and orderItem.quantitySalesUnit.productMeasurementUnit.name and orderItem.quantitySalesUnit.conversion %}
-    <div>
-        ( = {{ orderItem.quantity / orderItem.quantitySalesUnit.conversion }} {{ orderItem.quantitySalesUnit.productMeasurementUnit.name | trans }})
-    </div>
-{% endif %}

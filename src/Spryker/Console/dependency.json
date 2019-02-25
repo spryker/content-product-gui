@@ -1,7 +1,0 @@
-{
-  "include": {
-  },
-  "exclude": {
-    "Symfony": "Now directly using symfony/console"
-  }
-}

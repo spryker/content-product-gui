@@ -1,3 +1,0 @@
-parameters:
-    ignoreErrors:
-    - '#Cannot access offset .+collector_.+ on .+SpyTouch#'
