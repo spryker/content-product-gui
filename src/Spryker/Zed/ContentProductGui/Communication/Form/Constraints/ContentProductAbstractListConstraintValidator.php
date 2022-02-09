@@ -17,14 +17,14 @@ use Symfony\Component\Validator\ConstraintValidator;
 class ContentProductAbstractListConstraintValidator extends ConstraintValidator
 {
     /**
-     * @param mixed $value Abstract product IDs that should be validated
+     * @param mixed $abstractProductIds The value that should be validated
      * @param \Symfony\Component\Validator\Constraint|\Spryker\Zed\ContentProductGui\Communication\Form\Constraints\ContentProductAbstractListConstraint $constraint The constraint for the validation
      *
      * @throws \InvalidArgumentException
      *
      * @return void
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate($abstractProductIds, Constraint $constraint): void
     {
         if (!$constraint instanceof ContentProductAbstractListConstraint) {
             throw new InvalidArgumentException(sprintf(
@@ -35,7 +35,7 @@ class ContentProductAbstractListConstraintValidator extends ConstraintValidator
         }
 
         $contentProductAbstractListTermTransfer = new ContentProductAbstractListTermTransfer();
-        $contentProductAbstractListTermTransfer->setIdProductAbstracts($value);
+        $contentProductAbstractListTermTransfer->setIdProductAbstracts($abstractProductIds);
 
         $contentValidationResponseTransfer = $constraint
             ->getContentProductFacade()
