@@ -7,10 +7,13 @@
 
 namespace Spryker\Zed\ContentProductGui\Communication\Table;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstract;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Spryker\Service\UtilText\Model\Url\Url;
 use Spryker\Zed\ContentProductGui\Communication\Controller\ProductAbstractController;
 use Spryker\Zed\ContentProductGui\ContentProductGuiConfig;
+use Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToProductImageInterface;
 use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
 
 class ProductAbstractSelectedTable extends AbstractProductAbstractTable
@@ -49,6 +52,33 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
      * @var string
      */
     public const BUTTON_MOVE_DOWN = 'Move Down';
+
+    /**
+     * @param \Spryker\Zed\ContentProductGui\ContentProductGuiConfig $config
+     * @param \Orm\Zed\Product\Persistence\SpyProductAbstractQuery $productQueryContainer
+     * @param \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToProductImageInterface $productImageFacade
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param string|null $identifierSuffix
+     * @param array $idProductAbstracts
+     */
+    public function __construct(
+        ContentProductGuiConfig $config,
+        SpyProductAbstractQuery $productQueryContainer,
+        ContentProductGuiToProductImageInterface $productImageFacade,
+        LocaleTransfer $localeTransfer,
+        ?string $identifierSuffix,
+        array $idProductAbstracts = []
+    ) {
+        $this->config = $config;
+
+        parent::__construct(
+            $productQueryContainer,
+            $productImageFacade,
+            $localeTransfer,
+            $identifierSuffix,
+            $idProductAbstracts
+        );
+    }
 
     /**
      * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
@@ -129,7 +159,7 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
             ->filterByFkLocale($this->localeTransfer->getIdLocale())
             ->endUse();
 
-        $this->setLimit(ContentProductGuiConfig::MAX_NUMBER_PRODUCTS_IN_PRODUCT_ABSTRACT_LIST);
+        $this->setLimit($this->config->getMaxProductsInProductAbstractList());
         $queryResults = $this->runQuery($query, $config, true);
 
         /** @var \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity */

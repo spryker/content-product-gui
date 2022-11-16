@@ -48,6 +48,7 @@ class ContentProductGuiCommunicationFactory extends AbstractCommunicationFactory
     public function createProductAbstractSelectedTable(array $idProductAbstracts, ?string $identifierSuffix = null): ProductAbstractSelectedTable
     {
         return new ProductAbstractSelectedTable(
+            $this->getConfig(),
             $this->getProductQueryContainer(),
             $this->getProductImageFacade(),
             $this->getLocaleFacade()->getCurrentLocale(),

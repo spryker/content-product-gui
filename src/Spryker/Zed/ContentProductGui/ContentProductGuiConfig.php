@@ -26,6 +26,16 @@ class ContentProductGuiConfig extends AbstractBundleConfig
     /**
      * @api
      *
+     * @return int
+     */
+    public function getMaxProductsInProductAbstractList(): int
+    {
+        return static::MAX_NUMBER_PRODUCTS_IN_PRODUCT_ABSTRACT_LIST;
+    }
+
+    /**
+     * @api
+     *
      * @return array<string, string>
      */
     public function getContentWidgetTemplates(): array
