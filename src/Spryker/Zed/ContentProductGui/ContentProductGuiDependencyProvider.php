@@ -39,11 +39,6 @@ class ContentProductGuiDependencyProvider extends AbstractBundleDependencyProvid
      */
     public const PROPEL_QUERY_PRODUCT_ABSTRACT = 'PROPEL_QUERY_PRODUCT_ABSTRACT';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $this->addProductImageFacade($container);
@@ -54,11 +49,6 @@ class ContentProductGuiDependencyProvider extends AbstractBundleDependencyProvid
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return void
-     */
     protected function addProductImageFacade(Container $container): void
     {
         $container->set(static::FACADE_PRODUCT_IMAGE, function (Container $container) {
@@ -66,11 +56,6 @@ class ContentProductGuiDependencyProvider extends AbstractBundleDependencyProvid
         });
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return void
-     */
     protected function addProductQueryContainer(Container $container): void
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_ABSTRACT, $container->factory(function () {
@@ -78,11 +63,6 @@ class ContentProductGuiDependencyProvider extends AbstractBundleDependencyProvid
         }));
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return void
-     */
     protected function addLocaleFacade(Container $container): void
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
@@ -90,11 +70,6 @@ class ContentProductGuiDependencyProvider extends AbstractBundleDependencyProvid
         });
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return void
-     */
     protected function addContentProductFacade(Container $container): void
     {
         $container->set(static::FACADE_CONTENT_PRODUCT, function (Container $container) {

@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ContentValidationResponseTransfer;
 
 interface ContentProductGuiToContentProductInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ContentProductAbstractListTermTransfer $contentProductAbstractListTermTransfer
-     *
-     * @return \Generated\Shared\Transfer\ContentValidationResponseTransfer
-     */
     public function validateContentProductAbstractListTerm(
         ContentProductAbstractListTermTransfer $contentProductAbstractListTermTransfer
     ): ContentValidationResponseTransfer;

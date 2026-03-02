@@ -58,14 +58,6 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
      */
     protected $contentProductGuiConfig;
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstractQuery $productQueryContainer
-     * @param \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToProductImageInterface $productImageFacade
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string|null $identifierSuffix
-     * @param array $idProductAbstracts
-     * @param \Spryker\Zed\ContentProductGui\ContentProductGuiConfig $contentProductGuiConfig
-     */
     public function __construct(
         SpyProductAbstractQuery $productQueryContainer,
         ContentProductGuiToProductImageInterface $productImageFacade,
@@ -78,11 +70,6 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
         $this->contentProductGuiConfig = $contentProductGuiConfig;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $parameters = [];
@@ -123,9 +110,6 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
         return $config;
     }
 
-    /**
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function newTableConfiguration(): TableConfiguration
     {
         $tableConfiguration = parent::newTableConfiguration();
@@ -170,11 +154,6 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
         return $results;
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
-     * @return array
-     */
     protected function formatRow(SpyProductAbstract $productAbstractEntity): array
     {
         $idProductAbstract = $productAbstractEntity->getIdProductAbstract();
@@ -190,11 +169,6 @@ class ProductAbstractSelectedTable extends AbstractProductAbstractTable
         ];
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
     protected function getActionButtons(int $idProductAbstract): string
     {
         $actionButtons = [];

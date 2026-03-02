@@ -17,9 +17,6 @@ class ContentProductContentGuiEditorConfigurationMapper implements ContentProduc
      */
     protected $contentProductGuiConfig;
 
-    /**
-     * @param \Spryker\Zed\ContentProductGui\ContentProductGuiConfig $contentProductGuiConfig
-     */
     public function __construct(ContentProductGuiConfig $contentProductGuiConfig)
     {
         $this->contentProductGuiConfig = $contentProductGuiConfig;
@@ -41,9 +38,6 @@ class ContentProductContentGuiEditorConfigurationMapper implements ContentProduc
         return $templates;
     }
 
-    /**
-     * @return string
-     */
     public function getTwigFunctionTemplate(): string
     {
         return '{{ ' . $this->contentProductGuiConfig->getTwigFunctionName() . "('%KEY%', '%TEMPLATE%') }}";

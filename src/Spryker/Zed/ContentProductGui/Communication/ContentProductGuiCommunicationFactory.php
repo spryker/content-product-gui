@@ -24,11 +24,6 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class ContentProductGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @param string|null $identifierSuffix
-     *
-     * @return \Spryker\Zed\ContentProductGui\Communication\Table\ProductAbstractViewTable
-     */
     public function createProductAbstractViewTable(?string $identifierSuffix = null): ProductAbstractViewTable
     {
         return new ProductAbstractViewTable(
@@ -39,12 +34,6 @@ class ContentProductGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @param array $idProductAbstracts
-     * @param string|null $identifierSuffix
-     *
-     * @return \Spryker\Zed\ContentProductGui\Communication\Table\ProductAbstractSelectedTable
-     */
     public function createProductAbstractSelectedTable(array $idProductAbstracts, ?string $identifierSuffix = null): ProductAbstractSelectedTable
     {
         return new ProductAbstractSelectedTable(
@@ -57,49 +46,31 @@ class ContentProductGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductGui\Communication\Form\Constraints\ContentProductAbstractListConstraint
-     */
     public function createContentProductAbstractListConstraint(): ContentProductAbstractListConstraint
     {
         return new ContentProductAbstractListConstraint($this->getContentProductFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductGui\Communication\Mapper\ContentGui\ContentProductContentGuiEditorConfigurationMapperInterface
-     */
     public function createContentProductContentGuiEditorMapper(): ContentProductContentGuiEditorConfigurationMapperInterface
     {
         return new ContentProductContentGuiEditorConfigurationMapper($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToProductImageInterface
-     */
     public function getProductImageFacade(): ContentProductGuiToProductImageInterface
     {
         return $this->getProvidedDependency(ContentProductGuiDependencyProvider::FACADE_PRODUCT_IMAGE);
     }
 
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
-     */
     public function getProductQueryContainer(): SpyProductAbstractQuery
     {
         return $this->getProvidedDependency(ContentProductGuiDependencyProvider::PROPEL_QUERY_PRODUCT_ABSTRACT);
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToLocaleInterface
-     */
     public function getLocaleFacade(): ContentProductGuiToLocaleInterface
     {
         return $this->getProvidedDependency(ContentProductGuiDependencyProvider::FACADE_LOCALE);
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToContentProductInterface
-     */
     public function getContentProductFacade(): ContentProductGuiToContentProductInterface
     {
         return $this->getProvidedDependency(ContentProductGuiDependencyProvider::FACADE_CONTENT_PRODUCT);

@@ -39,11 +39,6 @@ class ProductAbstractListContentTermForm extends AbstractType
      */
     protected const TEMPLATE_PATH = '@ContentProductGui/ProductAbstractList/product_abstract_list.twig';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -86,9 +81,6 @@ class ProductAbstractListContentTermForm extends AbstractType
         $view->vars['attr']['template_path'] = static::TEMPLATE_PATH;
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'abstract-product-list';

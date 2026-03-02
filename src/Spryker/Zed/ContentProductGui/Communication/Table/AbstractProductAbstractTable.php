@@ -96,13 +96,6 @@ abstract class AbstractProductAbstractTable extends AbstractTable
      */
     protected $idProductAbstracts;
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstractQuery $productQueryContainer
-     * @param \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToProductImageInterface $productImageFacade
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string|null $identifierSuffix
-     * @param array $idProductAbstracts
-     */
     public function __construct(
         SpyProductAbstractQuery $productQueryContainer,
         ContentProductGuiToProductImageInterface $productImageFacade,
@@ -133,11 +126,6 @@ abstract class AbstractProductAbstractTable extends AbstractTable
         );
     }
 
-    /**
-     * @param bool $status
-     *
-     * @return string
-     */
     protected function getStatusLabel(bool $status): string
     {
         if (!$status) {
@@ -147,11 +135,6 @@ abstract class AbstractProductAbstractTable extends AbstractTable
         return $this->generateLabel('Active', 'label-primary');
     }
 
-    /**
-     * @param string|null $link
-     *
-     * @return string
-     */
     protected function getProductPreview(?string $link): string
     {
         if ($link) {
@@ -161,11 +144,6 @@ abstract class AbstractProductAbstractTable extends AbstractTable
         return '';
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
-     * @return bool
-     */
     protected function getAbstractProductStatus(SpyProductAbstract $productAbstractEntity): bool
     {
         foreach ($productAbstractEntity->getSpyProducts() as $spyProductEntity) {
@@ -177,11 +155,6 @@ abstract class AbstractProductAbstractTable extends AbstractTable
         return false;
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
-     * @return string|null
-     */
     protected function getProductPreviewUrl(SpyProductAbstract $productAbstractEntity): ?string
     {
         $productImageSetTransferCollection = $this->productImageFacade

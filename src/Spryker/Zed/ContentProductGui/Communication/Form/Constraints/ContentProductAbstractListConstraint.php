@@ -28,9 +28,6 @@ class ContentProductAbstractListConstraint extends SymfonyConstraint
         parent::__construct($options);
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductGui\Dependency\Facade\ContentProductGuiToContentProductInterface
-     */
     public function getContentProductFacade(): ContentProductGuiToContentProductInterface
     {
         return $this->contentProductFacade;

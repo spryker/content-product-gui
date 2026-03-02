@@ -14,8 +14,5 @@ interface ContentProductContentGuiEditorConfigurationMapperInterface
      */
     public function getTemplates(): array;
 
-    /**
-     * @return string
-     */
     public function getTwigFunctionTemplate(): string;
 }

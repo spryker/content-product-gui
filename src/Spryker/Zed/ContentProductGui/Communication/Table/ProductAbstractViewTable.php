@@ -37,11 +37,6 @@ class ProductAbstractViewTable extends AbstractProductAbstractTable
      */
     public const COL_ALIAS_NAME = 'name';
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $this->baseUrl = static::BASE_URL;
@@ -104,11 +99,6 @@ class ProductAbstractViewTable extends AbstractProductAbstractTable
         return $results;
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
-     * @return array
-     */
     protected function formatRow(SpyProductAbstract $productAbstractEntity): array
     {
         return [
@@ -122,11 +112,6 @@ class ProductAbstractViewTable extends AbstractProductAbstractTable
         ];
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
     protected function getAddButtonField(int $idProductAbstract): string
     {
         return $this->generateButton(
