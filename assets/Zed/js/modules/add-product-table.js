@@ -100,8 +100,8 @@ var ProductListContentItem = function (
     this.changeOrder = function (button, assignedTable) {
         var productId = button.data('id');
         var direction = button.data('direction');
-        var tableApi = assignedTable.dataTable().api();
-        var tableData = tableApi.data().toArray();
+        var tableApi = $.fn.dataTable.Api(assignedTable);
+        var tableData = tableApi.rows().data().toArray();
         var indexOfClickedRow = tableApi.row(button.parents('tr')).index();
         var removedFromDataArray = tableData.splice(indexOfClickedRow, 1)[0];
         var integerInput = this.getHiddenInputForMoving(assignedTable, productId);
@@ -116,7 +116,7 @@ var ProductListContentItem = function (
             tableData.splice(indexOfClickedRow + 1, 0, removedFromDataArray);
         }
 
-        tableApi.rows().remove();
+        tableApi.clear();
         tableApi.rows.add(tableData).draw();
     };
 
