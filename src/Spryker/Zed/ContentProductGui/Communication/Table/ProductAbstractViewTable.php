@@ -37,6 +37,18 @@ class ProductAbstractViewTable extends AbstractProductAbstractTable
      */
     public const COL_ALIAS_NAME = 'name';
 
+    protected const string SELECTOR_WRAPPER = '.id-product-abstract-fields';
+
+    protected const string SELECTOR_INPUTS_WRAPPER = '.js-selected-products-wrapper';
+
+    protected const string SELECTOR_ADD_BUTTON = '.js-add-product-abstract';
+
+    protected const string SELECTOR_REMOVE_BUTTON = '.js-delete-product-abstract';
+
+    protected const string SELECTOR_REORDER_BUTTON = '.js-reorder-product-abstract';
+
+    protected const string CLASS_CLEAR_ALL_BUTTON = 'clear-fields';
+
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $this->baseUrl = static::BASE_URL;
@@ -73,7 +85,30 @@ class ProductAbstractViewTable extends AbstractProductAbstractTable
 
         $config->setStateSave(false);
 
+        // Assigning a product moves it into the selected table and into the form collection of the wrapper.
+        $config->setTableAttributes([
+            'data-assignable' => [
+                'selectedTableSelector' => '#' . $this->getSelectedTableIdentifier(),
+                'colId' => static::COL_ID_PRODUCT_ABSTRACT,
+                'wrapperSelector' => static::SELECTOR_WRAPPER,
+                'inputsWrapperSelector' => static::SELECTOR_INPUTS_WRAPPER,
+                'addButtonSelector' => static::SELECTOR_ADD_BUTTON,
+                'removeButtonSelector' => static::SELECTOR_REMOVE_BUTTON,
+                'reorderButtonSelector' => static::SELECTOR_REORDER_BUTTON,
+                'clearAllButtonClass' => static::CLASS_CLEAR_ALL_BUTTON,
+            ],
+        ]);
+
         return $config;
+    }
+
+    protected function getSelectedTableIdentifier(): string
+    {
+        if (!$this->identifierSuffix) {
+            return ProductAbstractSelectedTable::TABLE_IDENTIFIER;
+        }
+
+        return sprintf('%s-%s', ProductAbstractSelectedTable::TABLE_IDENTIFIER, $this->identifierSuffix);
     }
 
     /**

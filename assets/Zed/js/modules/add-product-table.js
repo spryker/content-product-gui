@@ -5,6 +5,12 @@
 
 'use strict';
 
+/**
+ * @deprecated Will be removed in the next major version. The behaviour this file implements is now
+ * provided by the Gui table library and configured from PHP through the `data-assignable` table attribute (see \Spryker\Zed\ContentProductGui\Communication\Table\ProductAbstractViewTable).
+ * Kept only so that projects still requiring this file keep working.
+ */
+
 var ProductListContentItem = function (
     tablesWrapperSelector,
     assignedTableSelector,

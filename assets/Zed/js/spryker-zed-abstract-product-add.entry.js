@@ -5,8 +5,4 @@
 
 'use strict';
 
-if (!window.ContentProductAbstractList) {
-    require('../sass/main.scss');
-    require('./modules/add-product-table');
-    window.ContentProductAbstractList = true;
-}
+require('../sass/main.scss');
