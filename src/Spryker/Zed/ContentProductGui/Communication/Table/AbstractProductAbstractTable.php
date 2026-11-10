@@ -138,7 +138,7 @@ abstract class AbstractProductAbstractTable extends AbstractTable
     protected function getProductPreview(?string $link): string
     {
         if ($link) {
-            return sprintf('<img src="%s">', $link);
+            return sprintf('<img src="%s">', htmlspecialchars($link, ENT_QUOTES, 'UTF-8'));
         }
 
         return '';
